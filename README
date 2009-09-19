@@ -1,3 +1,5 @@
-Work in progress :/
+Chichafortunes is a fortune app written using the Django Web Framework.
 
-For now read USAGE
+It can be used to power a site like http://fortunes.chicha.pe
+
+Please read INSTALL and USAGE for more information

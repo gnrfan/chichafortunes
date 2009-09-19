@@ -1,0 +1,10 @@
+INSTALL INSTRUCTIONS:
+
+- You need Django 1.1 and a supported database (defaults to sqlite, mysql will do fine, postgresql might be a good pick)
+- See and/or adjust database setup  in the settings.py file
+- Run python manage.py syncdb (you'll create the admin account and its credentials at this step)
+- Run python manage.py runserver (for development stage is fine)
+- Install properly under Apache or prefered web server (lighttpd, nginx or cherokee will do nice too)
+   See: http://docs.djangoproject.com/en/dev/howto/deployment/modpython/ (modwsgi works nicely too)
+
+TODO: Turn this into something more useful for a non Django-savvy person
