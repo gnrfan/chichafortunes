@@ -1,0 +1,75 @@
+body    {
+font-family: Times New Roman, sans-serif;
+font-size: 12px;
+color: darkred;
+background: #7FFF00;
+}
+
+#footer {
+clear: both;
+text-align: center;
+background: #efefef;
+padding: 20px 0;
+background: #7FFF00;
+color: darkred;
+font-size: 12px;
+}
+
+#header ul {
+float: left;
+overflow: hidden;
+}
+
+#header ul li {
+display: inline;
+}
+
+ul.messagelist  {
+margin-bottom: 10px;
+overflow: hidden;
+position: relative;
+top: -20px;
+}
+
+ul.messagelist li {
+background: #FFFF99;
+float: left;
+font-size: 12px;
+margin: 0 0 1px 0;
+padding: 6px 17px;
+text-align: center;
+width: 100%;
+}
+
+.listing    {
+margin: 20px 0;
+}
+
+#container h1 {
+margin: 10px;
+font-size: 20px;
+}
+
+#container ul {
+margin: 10px;
+}
+
+#container a {
+color: #0000aa;
+}
+
+#container a:hover {
+color: #0000aa;
+background: #aaffff;
+}
+
+ul.errorlist li {
+font-weight: bold;
+color: red;
+}
+
+pre.fortune {
+font-family: Monaco, Consolas, Courier-New;
+width: 90%;
+overflow: auto;
+}

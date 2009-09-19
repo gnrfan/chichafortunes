@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block titulo %}Chicha Fortunes{% endblock %}</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{media_url}}css/base.css" />
+{% block extra_head %}{% endblock %}
+<script type="text/javascript" src="{{ media_url }}js/external/jquery.js"></script>
+<script type="text/javascript" src="{{ media_url }}js/external/effects.core.js"></script>
+<script type="text/javascript" src="{{ media_url }}js/external/jquery.form.js"></script>
+</head>
+<body>
+
+{% block header %}
+<div id='header'>
+<h1>chichafortunes</h1>
+</div>
+{% endblock %}
+<!-- header ends here -->
+
+<div id="container">
+{% include "messages.html" %}
+
+{% block contents %}{% endblock %}
+<!-- #contents -->
+</div>
+<!-- #container -->
+
+<div id="footer">
+<p>(k) 2004, 2009 Chichadevelopers.</p>
+<a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangosite100x25.gif" border="0" alt="A Django site." title="A Django site." /></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block contents %}
+<form action="" method="post">
+<table>
+{{ form.as_table }}
+</table>
+<p><input type="submit" value="Enviar chicha" />
+</form>
+{% if random %} 
+<h2>Lincs</h2>
+<ul>
+<li><a href="{% url fortunes %}">Ver chicha</a></li>
+<li><a href="http://planet.chicha.pe">Planeta Chicha</a></li>
+</ul>
+<h2>random chicha entry:</h2>
+<pre class='fortune'>{{ random.as_html|wordwrap:100 }}</pre>
+{% else %}
+<p>Juas! Aún no hay chicha en la base de datos :/ Que succhada!!</p>
+{% endif %}
+{% endblock %}

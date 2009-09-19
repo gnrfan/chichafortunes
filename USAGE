@@ -1,0 +1,4 @@
+- Submitting a new fortune is pretty straightforward
+- Moderating the fortunes requires yo to login to /admin/ with admin:admin as credentials
+  and check/uncheck the accepted and moderated properties of fortunes. 
+- The timestamp of moderation gets automatically saved.

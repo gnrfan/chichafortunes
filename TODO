@@ -1,0 +1,70 @@
+TO-DO:
+
+For 0.1:
+
+- Emulate look & feel of fortunes.chicha.pe (PHP version)
+- Include submission timestamp when available
+- Properly render fortune as HTML
+  - Soport for HTTP URLs and e-mail addresses
+  - Nick names show in bold
+  - Comments use a different color
+  - Submitter nickname uses a different color
+- Implement importer of fortunes-chicha.txt properly marking the origin of the
+  fortune as imported instead of submitted.
+- Remove space at the beginning of nick name (e.g. < lchvdlch> -> <lchvdlch>) 
+- fortunes-chicha.html (using the HTML rendering code)
+- Build absolute URL using the Django's Sites subframework
+- Include a fixture
+- INSTALL file for not so Django-savvy succhas
+- Add cool 404, 403 and 500 error pages :)
+- Write an initial FAQ
+
+For 0.2
+
+- HTML 4.0 / XHTML 1.0 validation
+- Fully CSS styled
+- Favicon!!!
+- RSS & Atom feeds!!!
+- Ajax-based rendering of another random fortune by pressing a button
+- Submitter can provide e-mail address to get notified at acceptance or rejection of fortune
+- HTML rendering enhancements:
+    - IRC events get colored smartly
+    - Smart nickname and text colorization using different colors for different nicks
+- Use Django templates for text and HTML rendering
+- Autotagging of fortunes based on words, nicknames and Chicha-sensitive terms
+- Tagcloud presentation and navigation
+  Ej. http://fortunes.chicha.pe/tag/lchvlch
+      http://fortunes.chicha.pe/tag/krill
+      http://fortunes.chicha.pe/tag/paniz
+- Search engine!!!
+
+For 0.3
+
+- RESTful API:
+  - fortunes-chicha.xml (All accepted fortunes)
+  - fortunes-chicha.json (All accepted fortunes)
+  - fortunes-chicha-pending-moderation.xml (requires AUTH)
+  - fortunes-chicha-pending-moderation.json (requires AUTH)
+  - fortunes-chicha-rejected.xml (requires AUTH)
+  - fortunes-chicha-rejected.json (requires AUTH)
+  - PUT to http://fortunes.chicha.pe/ for submission
+  - GET to http://fortunes.chicha.pe/<fortune_id>.json for retrieval
+  - POST to http://fortunes.chicha.pe/<fortune_id>.json for edits (requires AUTH)
+  - DELETE to ttp://fortunes.chicha.pe/<fortune_id>.json for deletion (requires AUTH)
+  - POST to http://fortunes.chicha.pe/<fortune.id>.json?(accept|reject) for moderation (requires AUTH)
+- Add 'API' as a possible origin
+
+For 0.4
+
+- Vote for your favorite fortunes (session based)
+- Fortune ranking based on number of votes
+- Stats
+   - Number of fortunes imported by month and year
+   - Number of fortunes submitted from the website by month and year
+   - Number of fortunes submitted from the API by month and year
+   - Average moderation time
+   - Acceptance / Rejection rates
+- RssCloud / PubSubHubSub support (See http://rsscloud.org and http://code.google.com/p/pubsubhubbub/
+
+For 0.5
+- To infinite and beyond!!
