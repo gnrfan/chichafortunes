@@ -21,7 +21,6 @@ class FortuneForm(forms.Form):
         if body:
             body.strip()
         duplicates = Fortune.objects.filter(body__iexact=body).count()
-        print "duplicates: %d" % duplicates
         if duplicates > 0:
             raise forms.ValidationError(strings.FORTUNE_DUPLICATED_ERROR)
         return body

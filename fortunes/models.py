@@ -57,7 +57,11 @@ class Fortune(models.Model):
         verbose_name_plural = strings.FORTUNE_MODEL_PLURAL
 
     def __unicode__(self):
-        return "Fortune Nro. %d" % self.id
+        stats = self.wordcount_stats()
+        lines = ''
+        if stats['lines'] > 1:
+            lines = ' + %d lines' % stats['lines']
+        return "Fortune Nro. %d - %s...%s" % (self.id, self.body[:48], lines)
 
     def save(self, *args, **kwargs):
         """Addiional save logic for fortunes"""
@@ -91,3 +95,15 @@ class Fortune(models.Model):
         """Renders fortune as HTML"""
         # TODO: Use a regexp to turn URLs into actual links
         return self.as_text()
+
+    def wordcount_stats(self):
+        """Returns the number of chars, words and lines in the body 
+           of the fortune"""
+        chars = len(self.body)
+        words = len([p for p in self.body.split(' ') if len(p.strip())>0])
+        lines = len(self.body.split('\n'))
+        return {
+            'chars': chars,
+            'words': words,
+            'lines': lines
+        }
