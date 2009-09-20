@@ -2,3 +2,4 @@
 - Moderating the fortunes requires you to login to /admin/
   and check/uncheck the accepted and moderated properties of fortunes. 
 - The timestamp of moderation gets automatically saved.
+- For importing fortunes use: python manage.py import fortunes-chicha.txt 
