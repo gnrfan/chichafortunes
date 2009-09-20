@@ -40,9 +40,9 @@ def index(request):
                 }
            )
 
-def fortune_detail(request, fortune_id):
+def fortune_detail(request, url_id):
     """Renders fortune in detail"""
-    fortune = get_object_or_404(Fortune, id=fortune_id, accepted=True, moderated=True)
+    fortune = get_object_or_404(Fortune, url_id=url_id, accepted=True, moderated=True)
     return HttpResponse(fortune.as_text(), content_type='text/plain')
 
 def fortunes_as_text(request):

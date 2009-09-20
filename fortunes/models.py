@@ -6,6 +6,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.html import urlize
 from common.shortcuts import get_fqdn
+from common.utils import create_url_id
 import exceptions
 import constants
 import strings
@@ -40,7 +41,7 @@ class FortuneManager(models.Manager):
             return result
         
 class Fortune(models.Model):
-
+    url_id = models.CharField(max_length=16, blank=True, editable=False, unique=True)
     body = models.TextField()
     comment = models.CharField(max_length=128, blank=True, null=True)
     submitter = models.CharField(max_length=64, blank=True, null=True)
@@ -63,19 +64,22 @@ class Fortune(models.Model):
         lines = ''
         if stats['lines'] > 1:
             lines = ' + %d lines' % stats['lines']
-        return "Fortune Nro. %d - %s...%s" % (self.id, self.body[:48], lines)
+        return "Fortune %d (%s) - %s...%s" % (self.id, self.url_id, self.body[:48], lines)
 
     def save(self, *args, **kwargs):
         """Addiional save logic for fortunes"""
         # Once the fortune gets marked as moderated its moderation 
         # timestamp gets saved.
+        if not self.url_id:
+            self.url_id = create_url_id(self.id)
+
         if self.moderated and self.moderated_at is None:
             self.moderated_at = datetime.datetime.now()
         return super(Fortune, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         """ Returns the absolute URL for fortune """
-        return reverse('fortune_detail', args=[self.id])
+        return reverse('fortune_detail', args=[self.url_id])
 
     def as_text(self):
         """Renders fortune as plain text"""
