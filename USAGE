@@ -3,3 +3,4 @@
   and check/uncheck the accepted and moderated properties of fortunes. 
 - The timestamp of moderation gets automatically saved.
 - For importing fortunes use: python manage.py import fortunes-chicha.txt 
+- When importing the .txt file must be properly encoded in utf8
