@@ -13,7 +13,7 @@
 <li><a href="http://planet.chicha.pe">Planeta Chicha</a></li>
 </ul>
 <h2>random chicha entry:</h2>
-<pre class='fortune'>{{ random.as_html|wordwrap:100 }}</pre>
+<pre class='fortune'>{{ random.as_html|wordwrap:100|safe }}</pre>
 {% else %}
 <p>Juas! Aún no hay chicha en la base de datos :/ Que succhada!!</p>
 {% endif %}
