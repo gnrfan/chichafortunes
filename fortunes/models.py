@@ -5,8 +5,8 @@ from random import randint
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.html import urlize
-from common.shortcuts import get_fqdn
-from common.utils import create_url_id
+from helpers.shortcuts import get_fqdn
+from helpers.utils import create_url_id
 import exceptions
 import constants
 import strings

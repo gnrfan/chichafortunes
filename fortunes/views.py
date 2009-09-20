@@ -7,16 +7,13 @@ from django.views.generic.simple import direct_to_template
 from django.core.urlresolvers import reverse
 from django.db import connection, transaction
 from django.shortcuts import get_object_or_404
-from common.shortcuts import set_message
+from helpers.shortcuts import set_message
 from forms import FortuneForm
 from models import Fortune
 import strings
 
-# NOTA: Estas son las dos vistas que implementan las consultas
-# de los dos reportes.
-
-def index(request):
-    """Main view of Chicha Fortunes app"""
+def index(request, template='fortunes/index.html'):
+    """Main view of fortunes app"""
 
     form = FortuneForm()
     fortune = None
@@ -34,7 +31,7 @@ def index(request):
 
     return direct_to_template(
                 request,
-                'fortunes/index.html',
+                template,
                 {'form': form,
                  'random': random
                 }

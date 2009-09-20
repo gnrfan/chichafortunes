@@ -9,7 +9,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Tabo Picón', 'tabo@gpicon.org'),
+     ('Webmaster', 'webmaster@yoursite.com'),
 )
 
 MANAGERS = ADMINS
@@ -40,7 +40,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '%s/static/' % PROJECT_DIR
+MEDIA_ROOT = '%s/fortunes/media/' % PROJECT_DIR
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -75,6 +75,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     '%s/templates/' % PROJECT_DIR,
+    '%s/fortunes/templates/' % PROJECT_DIR,
 )
 
 INSTALLED_APPS = (
@@ -84,7 +85,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     # Dependencies
-    'deps.session_messages',
+    'session_messages',
     # Project apps
     'fortunes'
 )
@@ -93,6 +94,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.request',
     'django.core.context_processors.i18n',
-    'deps.session_messages.context_processors.session_messages',
-    'common.context_processors.paths'
+    'session_messages.context_processors.session_messages',
+    'fortunes.helpers.context_processors.paths'
 )

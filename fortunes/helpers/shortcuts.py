@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.sites.models import Site
-from deps.session_messages import create_message
+from session_messages import create_message
 
 def get_fqdn(site_id=None):
     """Gets FQDN of the web server host"""

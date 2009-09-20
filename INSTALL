@@ -1,7 +1,11 @@
 INSTALL INSTRUCTIONS:
 
 - You need Django 1.1 and a supported database (defaults to sqlite, mysql will do fine, postgresql might be a good pick)
-- See and/or adjust database setup  in the settings.py file
+- Install dependencies in your Python path (virtualenv suggested)
+  - session_messages - Get it from http://code.google.com/p/django-session-messages/
+- The reusable app is in the 'fortunes' folder
+- The settings.py file as well as the urls.py and root templates folder are provided for your reference / convenience
+- See and/or adjust database setup in the settings.py file
 - Run python manage.py syncdb (you'll create the admin account and its credentials at this step)
 - Run python manage.py runserver (for development stage is fine)
 - Point your browser to the /admin/ interface and change the FQDN of your host from example.com to yoursite.domain
