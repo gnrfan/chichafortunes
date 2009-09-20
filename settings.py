@@ -93,5 +93,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.request',
     'django.core.context_processors.i18n',
+    'deps.session_messages.context_processors.session_messages',
     'common.context_processors.paths'
 )

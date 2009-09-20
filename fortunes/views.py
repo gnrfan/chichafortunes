@@ -2,8 +2,9 @@
 
 # Create your views here.
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.simple import direct_to_template
+from django.core.urlresolvers import reverse
 from django.db import connection, transaction
 from django.shortcuts import get_object_or_404
 from common.shortcuts import set_message
@@ -24,11 +25,10 @@ def index(request):
         form = FortuneForm(data=request.POST)
 
         if form.is_valid():
-            remote_addr = request.GET.get('REMOTE_ADDR', None)
+            remote_addr = request.META.get('REMOTE_ADDR', None)
             fortune = form.save(remote_addr=remote_addr)
             set_message(strings.FORTUNE_CREATED_MSG, request)
-        else:
-            print "El form no es valido"
+            return HttpResponseRedirect(reverse('homepage'))
 
     random = Fortune.objects.random(exclude=fortune)
 
