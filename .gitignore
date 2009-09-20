@@ -1,0 +1,10 @@
+# .gitignore files for chichafortunes project
+
+# Ignore Python .pyc files
+*.pyc
+
+# Ignore VIM .swp files
+.*.swp
+
+# Ignore SQLite .db files
+*.db
