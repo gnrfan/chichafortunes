@@ -4,6 +4,8 @@ INSTALL INSTRUCTIONS:
 - See and/or adjust database setup  in the settings.py file
 - Run python manage.py syncdb (you'll create the admin account and its credentials at this step)
 - Run python manage.py runserver (for development stage is fine)
+- Point your browser to the /admin/ interface and change the FQDN of your host from example.com to yoursite.domain
+  under the Sites models in the domain property of the site with ID of 1
 - Install properly under Apache or prefered web server (lighttpd, nginx or cherokee will do nice too)
    See: http://docs.djangoproject.com/en/dev/howto/deployment/modpython/ (modwsgi works nicely too)
 
