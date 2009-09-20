@@ -8,3 +8,6 @@
 
 # Ignore SQLite .db files
 *.db
+
+# Ignore .DS_Store files from Mac users
+.DS_Store
