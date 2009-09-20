@@ -10,6 +10,10 @@ The following files and folders are NOT necessary since they are not
 part of the 'fortunes' Django reusable app but might help you to
 bootstrap a working site faster:
 
+__init__.py
 urls.py
 settings.py
 templates/
+
+They are all part of a 'Django project' folder but you can use
+your own.
