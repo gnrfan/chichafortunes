@@ -4,6 +4,8 @@ import datetime
 from random import randint
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.html import urlize
+from common.shortcuts import get_fqdn
 import exceptions
 import constants
 import strings
@@ -82,8 +84,7 @@ class Fortune(models.Model):
         parts.append(self.body)
         if self.comment:
             parts.append(strings.FORTUNE_COMMENT_TEMPLATE % self.comment)
-        #TODO: Use sites subframework instead of hardcoding a site
-        url = 'http://fortunes.chicha.pe' + self.get_absolute_url()
+        url = 'http://' + get_fqdn() + self.get_absolute_url()
         parts.append(strings.FORTUNE_PERMALINK_TEMPLATE % url)
         if self.submitter:
             parts.append(strings.FORTUNE_DELIMITER_BY % self.submitter)
@@ -91,10 +92,11 @@ class Fortune(models.Model):
            parts.append(strings.FORTUNE_DELIMITER)
         return '\n'.join(parts)
 
-    def as_html(self):
+    def as_html(self, autoescape=True):
         """Renders fortune as HTML"""
-        # TODO: Use a regexp to turn URLs into actual links
-        return self.as_text()
+        value = self.as_text()
+        value = urlize(value, nofollow=False, autoescape=autoescape)
+        return value
 
     def wordcount_stats(self):
         """Returns the number of chars, words and lines in the body 
