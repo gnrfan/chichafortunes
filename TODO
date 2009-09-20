@@ -2,34 +2,37 @@ TO-DO:
 
 For 0.1:
 
-- Emulate look & feel of fortunes.chicha.pe (PHP version)
 - Include submission timestamp when available
-- Properly render fortune as HTML
-  - Soport for HTTP URLs and e-mail addresses
-  - Nick names show in bold
-  - Comments use a different color
-  - Submitter nickname uses a different color
-- Implement importer of fortunes-chicha.txt properly marking the origin of the
-  fortune as imported instead of submitted.
 - Remove space at the beginning of nick name (e.g. < lchvdlch> -> <lchvdlch>) 
 - fortunes-chicha.html (using the HTML rendering code)
-- Build absolute URL using the Django's Sites subframework
-- Include a fixture
+- Include fixtures
 - INSTALL file for not so Django-savvy succhas
 - Add cool 404, 403 and 500 error pages :)
+- Implement fortunes.chicha.pe/random in order to render a random fortune 
+  as plain text similar to the permalinks
+- Better admin with columns and filters
 - Write an initial FAQ
+- Public basic stats
+  - Total number of fortunes in the database
+  - Moderation queue size
+  - Number of rejected fortunes
+  - Number of fortunes by submitter
+- Favicon!!!
+- Write tests!!!
 
 For 0.2
 
 - HTML 4.0 / XHTML 1.0 validation
 - Fully CSS styled
-- Favicon!!!
 - RSS & Atom feeds!!!
 - Ajax-based rendering of another random fortune by pressing a button
 - Submitter can provide e-mail address to get notified at acceptance or rejection of fortune
 - HTML rendering enhancements:
-    - IRC events get colored smartly
-    - Smart nickname and text colorization using different colors for different nicks
+  - Nick names show in bold
+  - Comments use a different color
+  - Submitter nickname uses a different color
+  - IRC events get colored smartly
+  - Smart nickname and text colorization using different colors for different nicks
 - Use Django templates for text and HTML rendering
 - Autotagging of fortunes based on words, nicknames and Chicha-sensitive terms
 - Tagcloud presentation and navigation
@@ -58,7 +61,7 @@ For 0.4
 
 - Vote for your favorite fortunes (session based)
 - Fortune ranking based on number of votes
-- Stats
+- Additional stats
    - Number of fortunes imported by month and year
    - Number of fortunes submitted from the website by month and year
    - Number of fortunes submitted from the API by month and year
