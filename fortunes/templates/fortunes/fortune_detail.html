@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block contents %}
+<pre class='fortune'>{{ fortune.as_html|wordwrap:100|safe }}</pre><a href="{{ fortune.permalink }}">(permalink)</a>
+{% endblock %}

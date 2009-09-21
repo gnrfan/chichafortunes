@@ -5,6 +5,7 @@ from random import randint
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.html import urlize
+from helpers.shortcuts import get_fqdn
 from helpers.utils import create_url_id
 import exceptions
 import constants
@@ -102,8 +103,12 @@ class Fortune(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        """ Returns the absolute URL for fortune """
+        """Returns the absolute URL for fortune"""
         return reverse('fortune_detail', args=[self.url_id])
+
+    def permalink(self):
+        """Returns the full permalink to the fortune"""
+        return 'http://' + get_fqdn() + self.get_absolute_url()
 
     def as_text(self):
         """Renders fortune as plain text"""
