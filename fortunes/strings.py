@@ -5,7 +5,6 @@ from django.utils.translation import ugettext as _
 FORTUNE_DELIMITER = _(u'%')
 FORTUNE_DELIMITER_BY = _(u'%% by %s')
 FORTUNE_COMMENT_TEMPLATE = _(u'- %s')
-FORTUNE_PERMALINK_TEMPLATE = _(u'+ Permalink: %s')
 
 # Constants
 
