@@ -3,7 +3,9 @@
 {% if fortunes %}
 {% for f in fortunes %}
 <pre class='fortune'>{{ f.as_html|wordwrap:100|safe }}</pre>
-<a href="{{ f.permalink }}">(permalink)</a>
+Permalink: 
+<a href="{{ f.permalink }}">(plain)</a> 
+<a href="{{ f.permalink }}.html">(html)</a>
 {% endfor %}
 {% else %}
 <p>Juas! Aún no hay chicha en la base de datos :/ Que succhada!!</p>
