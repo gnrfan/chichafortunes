@@ -90,6 +90,18 @@ class Fortune(models.Model):
         # Returning the instance
         return super(Fortune, self).save(*args, **kwargs)
 
+    def accept(self):
+        """Moderates the fortune as accepted"""
+        self.accepted = True
+        self.moderated = True
+        self.save()
+
+    def reject(self):
+        """Moderates the fortune as rejected"""
+        self.accepted = False
+        self.moderated = True
+        self.save()
+
     def get_absolute_url(self):
         """ Returns the absolute URL for fortune """
         return reverse('fortune_detail', args=[self.url_id])

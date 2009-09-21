@@ -43,7 +43,8 @@ def fortune_callback(record):
     """Process a fortune record"""
     form = FortuneForm(data=record)
     if form.is_valid():
-        form.save(origin=constants.ORIGIN_IMPORTED)
+        fortune = form.save(origin=constants.ORIGIN_IMPORTED)
+        fortune.accept()
         return True
     else:
         for field, messages in form.errors.items():
