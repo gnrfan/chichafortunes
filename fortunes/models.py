@@ -41,7 +41,9 @@ class FortuneManager(models.Manager):
             return result
         
 class Fortune(models.Model):
-    url_id = models.CharField(max_length=16, blank=True, editable=False, unique=True)
+    # the url_id can't be a unique field because at some point will be
+    # saved with a NULL value.
+    url_id = models.CharField(max_length=16, blank=True, editable=False)
     body = models.TextField()
     comment = models.CharField(max_length=128, blank=True, null=True)
     submitter = models.CharField(max_length=64, blank=True, null=True)
@@ -70,11 +72,22 @@ class Fortune(models.Model):
         """Addiional save logic for fortunes"""
         # Once the fortune gets marked as moderated its moderation 
         # timestamp gets saved.
-        if not self.url_id:
-            self.url_id = create_url_id(self.id)
+       
+        # Initial save 
+        if not self.id:        
+            super(Fortune, self).save(*args, **kwargs)
 
+        # Adding url_id
+        if self.id and not self.url_id:
+            self.url_id = create_url_id(self.id)
+        
+        # Here we add the moderation timestamp the first
+        # time the object is saved with the 'moderated'
+        # property set to True
         if self.moderated and self.moderated_at is None:
             self.moderated_at = datetime.datetime.now()
+
+        # Returning the instance
         return super(Fortune, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
