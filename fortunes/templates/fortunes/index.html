@@ -9,12 +9,17 @@
 {% if random_fortune %} 
 <h2>Lincs</h2>
 <ul>
-<li><a href="{% url fortunes %}">Ver chicha</a></li>
+<li>Ver chicha: 
+<a href="{% url fortunes %}">(plain)</a> 
+<a href="{% url fortunes_html %}">(html)</a>
+</li>
 <li><a href="http://planet.chicha.pe">Planeta Chicha</a></li>
 </ul>
 <h2>random chicha entry:</h2>
 <pre class='fortune'>{{ random_fortune.as_html|wordwrap:100|safe }}</pre>
-<a href="{{ random_fortune.permalink }}">(permalink)</a>
+Permalink: 
+<a href="{{ random_fortune.permalink }}">(plain)</a> 
+<a href="{{ random_fortune.permalink }}.html">(html)</a>
 {% else %}
 <p>Juas! Aún no hay chicha en la base de datos :/ Que succhada!!</p>
 {% endif %}
